@@ -3,3 +3,5 @@
   roles:
 #    - role-template # official one
     - role: '../../.'    # work using vagrant tests
+      nginx__upstream: true
+#      nginx__version: 'mainline'

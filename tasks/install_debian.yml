@@ -1,0 +1,25 @@
+---
+
+# This part include nginx.org official repository for upstream releases
+- name: "Add nginx.org repository GPG key"
+  apt_key:
+    url: "{{ nginx__gpg_url }}"
+  when: nginx__upstream
+
+- name: "Switch to nginx mainline version"
+  set_fact:
+    nginx__apt_repo: "{{ nginx__mainline_apt_repo }}"
+  when: nginx__version == "mainline"
+
+- name: "Configure nginx.org apt repository"
+  apt_repository:
+    repo: "{{ nginx__apt_repo }}"
+    state: "{{ nginx__upstream | ternary('present', 'absent') }}"
+    update_cache: yes
+
+- name: "Install nginx"
+  apt:
+    name: "nginx"
+    state: present
+  notify:
+    - restart nginx

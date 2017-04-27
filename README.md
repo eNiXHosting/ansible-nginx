@@ -18,9 +18,10 @@ Supported targets:
 Role Variables
 --------------
 
-This roles comes preloaded with almost every available default. You can override each one in your hosts/group vars, in your inventory, or in your play. See the annotated defaults in `defaults/main.yml` for help in configuration. All provided variables start with `$nginx__`.
+This roles comes preloaded with almost every available default. You can override each one in your hosts/group vars, in your inventory, or in your play. See the annotated defaults in `defaults/main.yml` for help in configuration. All provided variables start with `nginx__`.
 
-- `$nginx__` - desc
+- `nginx__upstream` - Choose the release of nginx to install, either distribution package or nginx.org version, `default: false`.
+- `nginx__version` - If upstream specified, choose to install *stable* or *mainline* version, `default: 'stable'`.
 
 Dependencies
 ------------
@@ -44,7 +45,7 @@ And add it to your play's roles:
         - { nginx: username.rolename, x: 42 }
 
 
-You can also use the role as a playbook. You will be asked which hosts to provision, and you can further configure the play by using `--extra-vars`.
+You can also use the role as a playbook. You will choose which hosts to provision, and you can further configure the play by using `--extra-vars`.
 
     $ ansible-playbook -i inventory --extra-vars='{...}' main.yml
 

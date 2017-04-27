@@ -1,10 +1,8 @@
 ---
 # handlers file for $roletemplate
 
-# - name: restart $service
-#   sudo: yes
-#   service: name=$service state=restarted
+ - name: restart nginx
+   service: name=nginx state=restarted
 
-# - name: reload $service
-#   sudo: yes
-#   service: name=$service state=reloaded
+ - name: reload nginx
+   service: name=nginx state=reloaded

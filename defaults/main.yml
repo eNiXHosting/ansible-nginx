@@ -1,2 +1,4 @@
 ---
 # defaults file for $roletemplate
+nginx__upstream: false
+nginx__version: 'stable'
