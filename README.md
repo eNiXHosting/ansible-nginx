@@ -1,4 +1,4 @@
-Enix/nginx for Ansible
+eNiXHosting.nginx
 =================
 
 A role for deploying and configuring [nginx](http://nginx.org) using [Ansible](http://www.ansible.com/).
@@ -63,7 +63,7 @@ Still to do
 Changelog
 ---------
 
-### 0.1
+### 1.0
 
 Initial version.
 
