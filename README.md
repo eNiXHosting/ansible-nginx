@@ -38,11 +38,15 @@ Clone this repo into your roles directory:
 
 Or use Ansible galaxy requirements.yml
 
+    - src: eNiXHosting.nginx
+
+
 And add it to your play's roles:
 
     - hosts: servers
       roles:
-        - { nginx: username.rolename, x: 42 }
+        - role: eNiXHosting.nginx:
+          nginx__upstream='true'
 
 
 You can also use the role as a playbook. You will choose which hosts to provision, and you can further configure the play by using `--extra-vars`.
@@ -53,7 +57,7 @@ You can also use the role as a playbook. You will choose which hosts to provisio
 Still to do
 -----------
 
-- Write the role itself, for one
+- ...
 
 
 Changelog
